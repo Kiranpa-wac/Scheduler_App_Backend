@@ -4,7 +4,7 @@ const Meeting = require("../models/Meetings");
 
 router.get("/", async (req, res) => {
   try {
-    const meetings = await Meeting.find();
+    const meetings = await Meeting.find().toArray();
     res.json(meetings);
   } catch (error) {
     res.status(500).json({ error: error.message });
